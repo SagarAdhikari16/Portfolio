@@ -63,7 +63,7 @@ body {
     height: 80px;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
-    border-b: 1px solid var(--border);
+    border-block: 1px solid var(--border);
     z-index: 100;
     border-bottom: 1px solid var(--border);
 }
@@ -191,7 +191,7 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    object-cover: cover;
+    object-position: cover;
     object-fit: cover;
 }
 
@@ -243,6 +243,7 @@ body {
     gap: 32px;
 }
 
+/* THE CORRECT FIXED VERSION: */
 .cert-card {
     background-color: var(--bg-main);
     border: 1px solid var(--border);
@@ -250,7 +251,7 @@ body {
     overflow: hidden;
     transition: var(--transition);
     display: flex;
-    flex-content: space-between;
+    justify-content: space-between; /* Changed this line */
     flex-direction: column;
 }
 
