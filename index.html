@@ -1,68 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagar Adhikari | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
-<body>
+<body class="bg-[#09090b] text-[#f8fafc] selection:bg-[#00ffcc] selection:text-[#09090b] min-h-screen antialiased">
 
-    <header>
-        <div class="container header-content">
-            <div class="logo">Sagar<span>.</span></div>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+    <header class="fixed top-0 left-0 w-full z-40 bg-[#09090b]/80 backdrop-blur-md border-b border-zinc-800/50">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight">Sagar<span class="text-[#00ffcc]">.</span></a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                <a href="#about" class="hover:text-[#00ffcc] transition-colors duration-300">About & Skills</a>
+                <a href="#certifications" class="hover:text-[#00ffcc] transition-colors duration-300">Certifications</a>
+                <a href="#contact" class="hover:text-[#00ffcc] transition-colors duration-300">Contact</a>
             </nav>
         </div>
     </header>
 
-    <section id="about" class="hero">
-        <div class="container hero-text">
-            <p class="greeting">Hi, my name is</p>
-            <h1>Sagar Adhikari<span>.</span></h1>
-            <h2>I build clean digital systems.</h2>
-            <p class="description">
-                I am a Bachelor of Information Management student specialized in optimizing software logic, masterfully structuring application architecture, and engineering modern front-end layout interfaces.
-            </p>
-            <a href="#projects" class="btn">Explore My Work</a>
+    <section class="min-h-screen flex items-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
+            <div class="space-y-6">
+                <p class="text-xs font-mono text-[#00ffcc] tracking-widest uppercase">Available for Projects</p>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1]">
+                    Hi, I'm <span class="text-[#00ffcc]">Sagar Adhikari</span>, a BIM Student.
+                </h1>
+                <p class="text-zinc-400 text-lg max-w-lg leading-relaxed">
+                    Passionate about building efficient backend solutions and web systems. Currently exploring software engineering, algorithms, and clean design.
+                </p>
+                <div class="pt-4">
+                    <a href="#about" class="inline-flex items-center justify-center px-6 py-3 border border-[#00ffcc] text-[#00ffcc] font-semibold text-sm rounded-lg hover:bg-[#00ffcc]/10 transition-all duration-300 hover:-translate-y-0.5">
+                        View My Work
+                    </a>
+                </div>
+            </div>
+            <div class="flex justify-center md:justify-end">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border-2 border-dashed border-zinc-800 flex items-center justify-center group hover:border-[#00ffcc]/50 transition-colors duration-500">
+                    <div class="absolute inset-4 rounded-full bg-zinc-900 flex items-center justify-center overflow-hidden">
+                        <span class="text-zinc-600 text-xs font-mono group-hover:text-[#00ffcc] transition-colors">Profile Portrait</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="projects">
-        <div class="container">
-            <h3 class="section-title">Featured Work</h3>
-            <div class="projects-grid">
+    <section id="about" class="py-24 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-bold tracking-tight mb-8">About Me & Skills</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-1 text-zinc-400 space-y-4 leading-relaxed">
+                    <p>
+                        I am currently studying for my Bachelor of Information Management. I focus on merging business information metrics with robust computing systems architecture.
+                    </p>
+                    <p>
+                        My academic interests center around optimizing data structures, developing clean application components, and configuring cloud networking assets.
+                    </p>
+                </div>
+                <div class="lg:col-span-2 space-y-6">
+                    <h3 class="text-sm font-semibold uppercase tracking-wider text-zinc-500">Technical Skillset</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800/80 text-sm font-medium hover:border-[#00ffcc]/40 transition-colors duration-300">Java</span>
+                        <span class="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800/80 text-sm font-medium hover:border-[#00ffcc]/40 transition-colors duration-300">Python</span>
+                        <span class="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800/80 text-sm font-medium hover:border-[#00ffcc]/40 transition-colors duration-300">SQL</span>
+                        <span class="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800/80 text-sm font-medium hover:border-[#00ffcc]/40 transition-colors duration-300">Data Structures</span>
+                        <span class="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800/80 text-sm font-medium hover:border-[#00ffcc]/40 transition-colors duration-300">Algorithms</span>
+                        <span class="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800/80 text-sm font-medium hover:border-[#00ffcc]/40 transition-colors duration-300">HTML5 & CSS3</span>
+                        <span class="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800/80 text-sm font-medium hover:border-[#00ffcc]/40 transition-colors duration-300">Tailwind CSS</span>
+                        <span class="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800/80 text-sm font-medium hover:border-[#00ffcc]/40 transition-colors duration-300">JavaScript</span>
+                        <span class="px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800/80 text-sm font-medium hover:border-[#00ffcc]/40 transition-colors duration-300">Git & GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-24 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-bold tracking-tight mb-12">Achievements & Certifications</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div class="project-card">
-                    <div class="project-tag">Web Application</div>
-                    <h3>Snap Study</h3>
-                    <p>A cloud platform designed to let computing students easily access structured lecture notes, manage micro-learning flashcards, and coordinate coursework materials seamlessly.</p>
+                <div class="group bg-zinc-900/50 border border-zinc-800/60 rounded-xl p-5 hover:border-[#00ffcc]/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="aspect-[4/3] w-full bg-zinc-900 rounded-lg border border-zinc-800 flex items-center justify-center mb-5 overflow-hidden text-zinc-600 text-xs font-mono group-hover:text-zinc-400 transition-colors">
+                            Certificate Preview Image
+                        </div>
+                        <h3 class="text-lg font-bold group-hover:text-[#00ffcc] transition-colors duration-300">Google IT Automation</h3>
+                        <p class="text-sm text-zinc-500 mt-1 mb-6">Coursera Professional Credential</p>
+                    </div>
+                    <button onclick="openModal('Google IT Automation', 'Coursera Professional Credential')" class="w-full py-2.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs font-semibold rounded-lg tracking-wide transition-all duration-300">
+                        View Full Certificate
+                    </button>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-tag">System Engineering</div>
-                    <h3>Personal Portfolio</h3>
-                    <p>A personal web portfolio configured with dynamic cloud network proxy servers, custom DNS records mapping, and fully optimized continuous build delivery workflows.</p>
+                <div class="group bg-zinc-900/50 border border-zinc-800/60 rounded-xl p-5 hover:border-[#00ffcc]/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="aspect-[4/3] w-full bg-zinc-900 rounded-lg border border-zinc-800 flex items-center justify-center mb-5 overflow-hidden text-zinc-600 text-xs font-mono group-hover:text-zinc-400 transition-colors">
+                            Certificate Preview Image
+                        </div>
+                        <h3 class="text-lg font-bold group-hover:text-[#00ffcc] transition-colors duration-300">Advanced CSS Architectures</h3>
+                        <p class="text-sm text-zinc-500 mt-1 mb-6">Meta Technical Track</p>
+                    </div>
+                    <button onclick="openModal('Advanced CSS Architectures', 'Meta Technical Track')" class="w-full py-2.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs font-semibold rounded-lg tracking-wide transition-all duration-300">
+                        View Full Certificate
+                    </button>
+                </div>
+
+                <div class="group bg-zinc-900/50 border border-zinc-800/60 rounded-xl p-5 hover:border-[#00ffcc]/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="aspect-[4/3] w-full bg-zinc-900 rounded-lg border border-zinc-800 flex items-center justify-center mb-5 overflow-hidden text-zinc-600 text-xs font-mono group-hover:text-zinc-400 transition-colors">
+                            Certificate Preview Image
+                        </div>
+                        <h3 class="text-lg font-bold group-hover:text-[#00ffcc] transition-colors duration-300">Data Structures & Algorithms</h3>
+                        <p class="text-sm text-zinc-500 mt-1 mb-6">UC San Diego Track</p>
+                    </div>
+                    <button onclick="openModal('Data Structures & Algorithms', 'UC San Diego Track')" class="w-full py-2.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-xs font-semibold rounded-lg tracking-wide transition-all duration-300">
+                        View Full Certificate
+                    </button>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="contact" class="container">
-        <div class="contact-section">
-            <h3 class="section-title">Let's Connect</h3>
-            <p>I am always looking to collaborate on web projects, discuss complex software architecture, or explore database design models. Drop a line anytime!</p>
-            <a href="mailto:adhikarisagar268@gmail.com" class="btn">Say Hello</a>
+    <div id="certModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 invisible opacity-0 transition-all duration-300 flex items-center justify-center p-4">
+        <div class="bg-zinc-950 border border-zinc-800 max-w-2xl w-full rounded-xl p-6 relative space-y-4">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white font-bold text-lg">&times;</button>
+            <h3 id="modalTitle" class="text-xl font-bold text-white pt-2"></h3>
+            <p id="modalIssuer" class="text-sm text-zinc-500 pb-2 border-b border-zinc-900"></p>
+            <div class="aspect-[4/3] w-full bg-zinc-900 rounded border border-zinc-800 flex items-center justify-center text-zinc-600 text-xs font-mono">
+                High-Resolution Asset Display Layer
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="py-24 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-bold tracking-tight mb-12">Get In Touch</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="space-y-6">
+                    <p class="text-zinc-400 leading-relaxed max-w-sm">
+                        Have an interesting project proposal, internship opening, or just want to discuss backend code mechanics? Drop me a message!
+                    </p>
+                    <div class="space-y-4 pt-4">
+                        <a href="mailto:contact@sagaradhikari016.com.np" class="group flex items-center gap-3 text-sm font-medium hover:text-[#00ffcc] transition-colors">
+                            <span class="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-[#00ffcc] group-hover:border-[#00ffcc]/30 transition-colors">✉</span>
+                            contact@sagaradhikari016.com.np
+                        </a>
+                        <div class="flex items-center gap-4 pt-4">
+                            <a href="#" class="text-xs font-mono tracking-wider text-zinc-400 hover:text-[#00ffcc] transition-colors">GITHUB</a>
+                            <span class="text-zinc-800">•</span>
+                            <a href="#" class="text-xs font-mono tracking-wider text-zinc-400 hover:text-[#00ffcc] transition-colors">LINKEDIN</a>
+                        </div>
+                    </div>
+                </div>
+                <form action="#" method="POST" class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Name</label>
+                        <input type="text" required class="w-full bg-zinc-900/50 border border-zinc-800/80 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00ffcc]/50 transition-colors duration-300">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Email</label>
+                        <input type="email" required class="w-full bg-zinc-900/50 border border-zinc-800/80 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00ffcc]/50 transition-colors duration-300">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">Message</label>
+                        <textarea rows="4" required class="w-full bg-zinc-900/50 border border-zinc-800/80 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00ffcc]/50 transition-colors duration-300 resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-[#00ffcc] text-[#09090b] font-bold text-sm rounded-lg hover:bg-[#00ffcc]/90 transition-all duration-300 active:scale-[0.99]">
+                        Send Message
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Sagar Adhikari. Crafted manually from scratch.</p>
+    <footer class="border-t border-zinc-900 py-12 text-center text-xs text-zinc-600">
+        <p>&copy; 2026 Sagar Adhikari. All rights reserved.</p>
     </footer>
 
+    <script>
+        const modal = document.getElementById('certModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalIssuer = document.getElementById('modalIssuer');
+
+        function openModal(title, issuer) {
+            modalTitle.innerText = title;
+            modalIssuer.innerText = issuer;
+            modal.classList.remove('invisible', 'opacity-0');
+        }
+
+        function closeModal() {
+            modal.classList.add('invisible', 'opacity-0');
+        }
+
+        // Close modal automatically if user clicks on the dark backdrop background area
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
