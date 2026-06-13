@@ -1,8 +1,8 @@
 const text = [
-  "Frontend Learner",
-  "Problem Solver",
-  "Tech Explorer",
-  "Building Projects..."
+  "Unique Blend: Tech + Business",
+  "Information Management Architect",
+  "Systems Operations Planner",
+  "Building Scalable Solutions..."
 ];
 
 let i = 0;
@@ -18,7 +18,7 @@ function type() {
     display.innerHTML = current.substring(0, j++);
     if (j > current.length) {
       isDeleting = true;
-      setTimeout(type, 1000);
+      setTimeout(type, 1500); 
       return;
     }
   } else {
@@ -29,16 +29,16 @@ function type() {
     }
   }
 
-  setTimeout(type, isDeleting ? 60 : 120);
+  setTimeout(type, isDeleting ? 30 : 70);
 }
 
-type();
+document.addEventListener("DOMContentLoaded", type);
 
-/* scroll reveal */
+/* Simple scroll animation reveal */
 window.addEventListener("scroll", () => {
   document.querySelectorAll(".reveal").forEach(el => {
     const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+    if (top < window.innerHeight - 80) {
       el.classList.add("active");
     }
   });
