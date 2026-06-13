@@ -1,159 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sagar Adhikari | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sagar Adhikari | Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Sagar<span>.</span></a>
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#certifications">Certificates</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+<header>
+  <nav>
+    <div class="logo">Sagar</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-text">
-                <span class="badge">BIM Student </span>
-                <h1>Hi, I'm <span class="highlight">Sagar Adhikari</span></h1>
-                <p>Building clean software solutions, exploring data structures, and learning web architectures. Welcome to my personal tracking space.</p>
-                <a href="#about" class="btn-primary">Explore My Journey</a>
-            </div>
-            <div class="hero-image-wrapper">
-                <div class="profile-frame">
-                    <img src="me.jpg" alt="Sagar Adhikari" class="profile-img">
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+  <h1>Sagar Adhikari</h1>
+  <p>Learning actively in tech & business field</p>
 
-    <section id="about" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">About Me & Skills</h2>
-            <div class="about-grid">
-                <div class="about-bio">
-                    <p>I am a Bachelor of Information Management student. My academic journey is centered around understanding computer architecture, optimizing program algorithms, and designing clean interactive interfaces.</p>
-                    <p>Instead of over-complicating things, I focus on coding real projects from scratch to deeply understand the core fundamentals of web environments.</p>
-                </div>
-                <div class="skills-box">
-                    <h3>Current Tech Stack</h3>
-                    <div class="skills-pill-wrapper">
-                        <span class="skill-pill">Java</span>
-                        <span class="skill-pill">Python</span>
-                        <span class="skill-pill">SQL</span>
-                        <span class="skill-pill">Data Structures</span>
-                        <span class="skill-pill">Algorithms</span>
-                        <span class="skill-pill">HTML5 & CSS3</span>
-                        <span class="skill-pill">JavaScript</span>
-                        <span class="skill-pill">Git & GitHub</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="buttons">
+    <a href="https://github.com/SagarAdhikari16" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/sagar-adhikari-7069b5402" target="_blank">LinkedIn</a>
+    <a href="mailto:contact@sagaradhikari016.com.np">Email Me</a>
+  </div>
+</section>
 
-    <section id="certifications" class="section">
-        <div class="container">
-            <h2 class="section-title">Achievements & Certifications</h2>
-            <div class="card-grid">
-                
-                <div class="cert-card">
-                    <div class="card-img-holder">
-                        <img src="cert1.jpg" alt="Google IT Automation" class="cert-img">
-                    </div>
-                    <div class="card-info">
-                        <h3>Google IT Automation</h3>
-                        <p class="issuer">Coursera Professional Credential</p>
-                        <button onclick="viewCertificate('cert1.jpg', 'Google IT Automation')" class="btn-secondary">View Full Certificate</button>
-                    </div>
-                </div>
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am focused on building strong foundations in programming, problem solving,
+    and real-world project development. I enjoy learning modern technologies and improving my skills through practice.
+  </p>
+</section>
 
-                <div class="cert-card">
-                    <div class="card-img-holder">
-                        <img src="cert2.jpg" alt="Data Structures & Algorithms" class="cert-img">
-                    </div>
-                    <div class="card-info">
-                        <h3>Data Structures & Algorithms</h3>
-                        <p class="issuer">UC San Diego Certificate</p>
-                        <button onclick="viewCertificate('cert2.jpg', 'Data Structures & Algorithms')" class="btn-secondary">View Full Certificate</button>
-                    </div>
-                </div>
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div>C</div>
+    <div>C++</div>
+    <div>Python</div>
+    <div>HTML</div>
+    <div>CSS</div>
+    <div>JavaScript</div>
+    <div>Git</div>
+    <div>GitHub</div>
+  </div>
+</section>
 
-                <div class="cert-card">
-                    <div class="card-img-holder">
-                        <img src="cert3.jpg" alt="Advanced CSS Architectures" class="cert-img">
-                    </div>
-                    <div class="card-info">
-                        <h3>Advanced CSS Architectures</h3>
-                        <p class="issuer">Meta Technical Track</p>
-                        <button onclick="viewCertificate('cert3.jpg', 'Advanced CSS Architectures')" class="btn-secondary">View Full Certificate</button>
-                    </div>
-                </div>
+<section id="projects">
+  <h2>Projects</h2>
 
-            </div>
-        </div>
-    </section>
+  <div class="card">
+    <h3>Portfolio Website</h3>
+    <p>Personal responsive portfolio hosted on GitHub Pages.</p>
+  </div>
 
-    <div id="lightboxModal" class="modal">
-        <div class="modal-content-wrapper">
-            <span class="close-btn" onclick="closeLightbox()">&times;</span>
-            <h3 id="modal-title">Certificate</h3>
-            <img id="modal-img" src="" alt="Full Certificate Display">
-        </div>
-    </div>
+  <div class="card">
+    <h3>Mini Projects</h3>
+    <p>Small practice projects in programming and web development.</p>
+  </div>
+</section>
 
-    <section id="contact" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-details">
-                    <p>Have an interesting project idea, study group proposal, or want to look at code mechanics? Drop a message straight into my inbox.</p>
-                    <div class="mail-link-box">
-                        <span class="mail-icon">✉</span>
-                        <a href="mailto:contact@sagaradhikari016.com.np" class="real-email">contact@sagaradhikari016.com.np</a>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-item">GitHub</a>
-                        <span class="divider">•</span>
-                        <a href="#" class="social-item">LinkedIn</a>
-                    </div>
-                </div>
-                <div class="contact-form-wrapper">
-                    <form action="#" method="POST" class="minimal-form">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" required placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" required placeholder="your.email@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea rows="4" required placeholder="Write your message here..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: contact@sagaradhikari016.com.np</p>
+  <p>GitHub: SagarAdhikari16</p>
+  <p>LinkedIn: Sagar Adhikari</p>
+</section>
 
-    <footer class="main-footer">
-        <p>&copy; 2026 Sagar Adhikari. All rights reserved.</p>
-    </footer>
+<footer>
+  <p>© 2026 Sagar Adhikari. All rights reserved.</p>
+</footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
