@@ -100,13 +100,13 @@ nav a:hover {
 
 .avatar-frame {
   width: 260px;
-  height: 260px;
+  height: 300px;
   border: 2px dashed #1e293b;
-  border-radius: 50%;
+  border-radius: 70%;
   padding: 10px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: top;
+  justify-content: top;
   transition: border-color 0.4s ease;
 }
 
