@@ -1,75 +1,131 @@
-const roles = [
-  "Unique Blend: Tech + Business",
-  "Information Management Architect",
-  "Systems Operations Planner",
-  "Building Scalable Solutions..."
+const TAGLINES = [
+  "scalable digital products",
+  "intelligent user experiences",
+  "AI-powered workflows",
+  "clean system architecture"
 ];
 
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+const STATUS_LINES = [
+  "Building Snap Study platform node...",
+  "Learning UI/UX design frameworks",
+  "Exploring AI-assisted development",
+  "Open to new project collaborations",
+  "Crafting responsive web layouts"
+];
 
-function type() {
-  const display = document.getElementById("type");
-  if (!display) return;
+let taglineIndex = 0;
+let statusIndex = 0;
 
-  const current = roles[roleIndex];
+/* ── Rotating hero tagline ── */
+function rotateTagline() {
+  const el = document.getElementById("tagline-rotate");
+  if (!el) return;
 
-  if (!isDeleting) {
-    display.textContent = current.substring(0, charIndex++);
-    if (charIndex > current.length) {
-      isDeleting = true;
-      setTimeout(type, 1800);
-      return;
-    }
-  } else {
-    display.textContent = current.substring(0, charIndex--);
-    if (charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-    }
-  }
-
-  setTimeout(type, isDeleting ? 35 : 65);
+  el.classList.add("fade");
+  setTimeout(() => {
+    taglineIndex = (taglineIndex + 1) % TAGLINES.length;
+    el.textContent = TAGLINES[taglineIndex];
+    el.classList.remove("fade");
+  }, 300);
 }
 
+/* ── Terminal status widget ── */
+function updateTerminal() {
+  const output = document.getElementById("terminal-output");
+  if (!output) return;
+  output.textContent = STATUS_LINES[statusIndex];
+  statusIndex = (statusIndex + 1) % STATUS_LINES.length;
+}
+
+function initTerminal() {
+  updateTerminal();
+  setInterval(updateTerminal, 5000);
+
+  const toggle = document.getElementById("terminal-toggle");
+  const widget = document.getElementById("terminal");
+  if (!toggle || !widget) return;
+
+  toggle.addEventListener("click", () => {
+    widget.classList.toggle("minimized");
+    toggle.textContent = widget.classList.contains("minimized") ? "+" : "—";
+  });
+}
+
+/* ── Copy email ── */
+function initCopyEmail() {
+  const btn = document.getElementById("copy-email");
+  const label = document.getElementById("copy-label");
+  const toast = document.getElementById("toast");
+  if (!btn || !label) return;
+
+  btn.addEventListener("click", async () => {
+    const email = btn.dataset.email;
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = email;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+
+    label.textContent = "Copied!";
+    btn.classList.add("copied");
+    if (toast) {
+      toast.textContent = "Email copied to clipboard";
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2500);
+    }
+
+    setTimeout(() => {
+      label.textContent = email;
+      btn.classList.remove("copied");
+    }, 2000);
+  });
+}
+
+/* ── Scroll reveal ── */
 function revealElements() {
   document.querySelectorAll(".reveal").forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 60) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 48) {
       el.classList.add("active");
     }
   });
 }
 
-function updateScrollProgress() {
-  const bar = document.querySelector(".scroll-progress");
-  if (!bar) return;
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  bar.style.width = docHeight > 0 ? `${(scrollTop / docHeight) * 100}%` : "0%";
-}
-
+/* ── Active nav ── */
 function updateActiveNav() {
   const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-links a");
+  const links = document.querySelectorAll(".nav a");
   let current = "";
 
   sections.forEach(section => {
-    const top = section.offsetTop - 100;
-    if (window.scrollY >= top) {
-      current = section.getAttribute("id");
+    if (window.scrollY >= section.offsetTop - 120) {
+      current = section.id;
     }
   });
 
-  navLinks.forEach(link => {
+  links.forEach(link => {
     link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
   });
 }
 
+/* ── Header scroll state ── */
+function initHeader() {
+  const header = document.getElementById("header");
+  if (!header) return;
+
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 10);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+/* ── Mobile nav ── */
 function initMobileNav() {
   const toggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".nav-links");
+  const nav = document.querySelector(".nav");
   if (!toggle || !nav) return;
 
   toggle.addEventListener("click", () => {
@@ -89,65 +145,33 @@ function initMobileNav() {
   });
 }
 
-function initHeaderScroll() {
-  const header = document.getElementById("header");
-  if (!header) return;
+/* ── Live clock in hero ── */
+function updateClock() {
+  const clockEl = document.querySelector(".hero-meta span:last-child");
+  if (!clockEl) return;
 
-  const onScroll = () => {
-    header.classList.toggle("scrolled", window.scrollY > 20);
-  };
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-}
-
-function initLightbox() {
-  const lightbox = document.getElementById("lightbox");
-  if (!lightbox) return;
-
-  const img = lightbox.querySelector("img");
-  const closeBtn = lightbox.querySelector(".lightbox-close");
-
-  document.querySelectorAll(".cert-visual-box").forEach(box => {
-    box.addEventListener("click", () => {
-      const src = box.querySelector("img")?.src;
-      if (!src) return;
-      img.src = src;
-      img.alt = box.querySelector("img")?.alt || "Certificate";
-      lightbox.classList.add("open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    });
-  });
-
-  function close() {
-    lightbox.classList.remove("open");
-    lightbox.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  }
-
-  closeBtn.addEventListener("click", close);
-  lightbox.addEventListener("click", e => {
-    if (e.target === lightbox) close();
-  });
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && lightbox.classList.contains("open")) close();
-  });
+  const now = new Date();
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  const npTime = new Date(utc + 5.75 * 3600000);
+  const h = String(npTime.getHours()).padStart(2, "0");
+  const m = String(npTime.getMinutes()).padStart(2, "0");
+  clockEl.textContent = `${h}:${m} NPT`;
 }
 
 function onScroll() {
   revealElements();
-  updateScrollProgress();
   updateActiveNav();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  type();
+  initHeader();
   initMobileNav();
-  initHeaderScroll();
-  initLightbox();
+  initTerminal();
+  initCopyEmail();
   revealElements();
-  updateScrollProgress();
+  updateClock();
+  setInterval(updateClock, 30000);
+  setInterval(rotateTagline, 3500);
 });
 
 window.addEventListener("scroll", onScroll, { passive: true });
