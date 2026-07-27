@@ -26,6 +26,34 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Security & Client-Side Editing Hardening */
+[contenteditable="true"],
+[contenteditable="false"],
+[contenteditable] {
+  -webkit-user-modify: read-only !important;
+  user-modify: read-only !important;
+}
+
+img,
+.hero-frame img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.status-pulse,
+.pill,
+.project-id,
+.terminal-dot,
+.meta-divider,
+.section-num,
+.hero-meta,
+a svg,
+button svg {
+  pointer-events: none;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 24px);
@@ -319,7 +347,6 @@ body {
   max-height: 440px;
   object-fit: contain;
   object-position: center center;
-  vertical-align: middle;
 }
 
 .hero-meta {
