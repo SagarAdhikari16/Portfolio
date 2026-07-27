@@ -4,21 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Sagar Adhikari | Tech Strategist & Developer</title>
   <link rel="stylesheet" href="style.css">
   <!-- Google Font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Navigation -->
+  <!-- Background Grid Glow -->
+  <div class="bg-glow"></div>
+
+  <!-- Header Navigation -->
   <header class="navbar">
     <div class="container nav-container">
-      <a href="#" class="brand-logo">SA.</a>
+      <a href="#" class="brand-logo">Sagar Adhikari</a>
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -33,126 +36,129 @@
     <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-text">
-          <div class="status-pill">
-            <span class="status-dot"></span> Available for Projects & Strategy
+          <div class="status-badge">
+            <span class="status-dot"></span> Available for Tech Strategy & Development
           </div>
-          <h1 class="hero-title">Hi, I'm Sagar Adhikari.</h1>
-          <p class="hero-description">
-            Tech strategist, software builder, and AI explorer. I design and engineer clean, robust digital products
-            focused on speed, clarity, and scalability.
+          <h1 class="hero-title">Architecting software & AI solutions with purpose.</h1>
+          <p class="hero-subtitle">
+            Hi, I'm <strong>Sagar Adhikari</strong>. A Tech Strategist and Developer focused on building
+            high-performance applications, intelligent workflows, and modern web experiences.
           </p>
-          <div class="hero-actions">
+          <div class="hero-cta">
             <a href="#contact" class="btn btn-primary">Get in Touch</a>
-            <a href="#projects" class="btn btn-secondary">View Work</a>
+            <a href="#projects" class="btn btn-secondary">Explore Projects</a>
           </div>
         </div>
-        <div class="hero-image-container">
-          <div class="profile-card">
-            <img src="photo.jpeg" alt="Sagar Adhikari" class="profile-img" draggable="false">
+
+        <div class="hero-image-wrapper">
+          <div class="hero-card-frame">
+            <img src="photo.jpeg" alt="Sagar Adhikari" class="hero-img" draggable="false">
           </div>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="editorial-section">
+    <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title">01. About & Vision</h2>
-        <div class="section-divider"></div>
-        <div class="about-grid">
-          <p class="lead-text">
-            I bridges the gap between modern technology and real-world execution. Whether architecting AI workflows,
-            tweaking UI performance, or engineering full-stack Web applications, my focus remains on building reliable,
-            intuitive software.
+        <div class="section-header">
+          <h2>About & Vision</h2>
+          <div class="line"></div>
+        </div>
+        <div class="about-card">
+          <p class="about-text">
+            I specialize in bridging complex technical infrastructure with clean, intuitive product design. From
+            designing AI workflow automation to engineering scalable front-end systems, my goal is to deliver software
+            that scales effortlessly.
           </p>
-          <div class="skills-list">
-            <h3>Core Capabilities</h3>
-            <ul>
-              <li>Full-Stack Development</li>
-              <li>AI Architecture & Workflows</li>
-              <li>Systems & Product Strategy</li>
-              <li>Clean Modern UI/UX</li>
-            </ul>
+          <div class="skills-grid">
+            <div class="skill-tag">Full-Stack Development</div>
+            <div class="skill-tag">AI Workflows</div>
+            <div class="skill-tag">System Strategy</div>
+            <div class="skill-tag">UI/UX Performance</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="editorial-section">
+    <section id="projects" class="section">
       <div class="container">
-        <h2 class="section-title">02. Featured Projects</h2>
-        <div class="section-divider"></div>
-        <div class="projects-list">
+        <div class="section-header">
+          <h2>Featured Work</h2>
+          <div class="line"></div>
+        </div>
+        <div class="projects-grid">
 
-          <article class="project-item">
-            <div class="project-info">
-              <span class="project-tag">AI / Education</span>
-              <h3 class="project-title">Snap Study</h3>
-              <p class="project-desc">An intelligent learning assistant designed to streamline study workflows through
-                automated summaries and smart flashcard generation.</p>
-              <div class="project-tech">
-                <span>JavaScript</span>
-                <span>Python</span>
-                <span>API Integration</span>
-              </div>
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-category">AI / Product</span>
+              <h3>Snap Study</h3>
             </div>
-          </article>
+            <p class="project-desc">An AI-driven study platform built to generate automated summaries, flashcards, and
+              interactive study schedules.</p>
+            <div class="project-tags">
+              <span>JavaScript</span>
+              <span>AI APIs</span>
+              <span>Python</span>
+            </div>
+          </div>
 
-          <article class="project-item">
-            <div class="project-info">
-              <span class="project-tag">Web Application</span>
-              <h3 class="project-title">Portfolio System</h3>
-              <p class="project-desc">A high-contrast, performance-focused personal portfolio site built with zero
-                dependencies for maximum accessibility and speed.</p>
-              <div class="project-tech">
-                <span>HTML5</span>
-                <span>Vanilla CSS</span>
-                <span>Git Pages</span>
-              </div>
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-category">Web Systems</span>
+              <h3>Portfolio Engine</h3>
+              <p class="project-desc">A lightweight, high-contrast digital portfolio engine built for max performance
+                and accessibility.</p>
             </div>
-          </article>
+            <div class="project-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>GitHub Pages</span>
+            </div>
+          </div>
 
         </div>
       </div>
     </section>
 
-    <!-- Awards Section -->
-    <section id="awards" class="editorial-section">
+    <!-- Awards Section (With Photo + Text Fixed) -->
+    <section id="awards" class="section">
       <div class="container">
-        <h2 class="section-title">03. Recognition & Awards</h2>
-        <div class="section-divider"></div>
-        <div class="awards-grid">
+        <div class="section-header">
+          <h2>Awards & Recognition</h2>
+          <div class="line"></div>
+        </div>
 
-          <article class="award-card">
-            <div class="award-image-wrapper">
-              <img src="photo.jpeg" alt="Award Recognition" class="award-img" draggable="false" loading="lazy">
+        <div class="awards-wrapper">
+          <div class="award-item">
+            <div class="award-img-box">
+              <img src="photo.jpeg" alt="Award Image" class="award-img" draggable="false">
             </div>
-            <div class="award-content">
-              <span class="award-year">Achievement / Recognition</span>
-              <h3 class="award-title">Hackathon Winner / Special Recognition</h3>
-              <p class="award-issuer">Issued by Event / University Organization</p>
-              <p class="award-description">
-                Recognized for technical innovation and outstanding problem-solving abilities under strict time
-                constraints.
+            <div class="award-info">
+              <span class="award-badge">Honors & Achievement</span>
+              <h3 class="award-title">Technical Achievement Award</h3>
+              <p class="award-org">Issued by Institution / Event</p>
+              <p class="award-details">
+                Recognized for outstanding strategy, execution, and technological innovation in developing software
+                solutions under competitive deadlines.
               </p>
             </div>
-          </article>
-
+          </div>
         </div>
+
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="editorial-section">
-      <div class="container contact-container">
-        <h2 class="section-title">04. Get In Touch</h2>
-        <div class="section-divider"></div>
-        <p class="contact-lead">Have an idea, project, or opportunity you want to discuss?</p>
-        <div class="contact-links">
+    <section id="contact" class="section">
+      <div class="container contact-box">
+        <h2>Ready to build something great?</h2>
+        <p>Feel free to reach out for collaborations, tech advisory, or project inquiries.</p>
+        <div class="contact-buttons">
           <a href="mailto:your-email@example.com" class="btn btn-primary">Send Email</a>
-          <a href="https://github.com/SagarAdhikari16" target="_blank" rel="noopener"
-            class="btn btn-secondary">GitHub</a>
+          <a href="https://github.com/SagarAdhikari16" target="_blank" rel="noopener" class="btn btn-secondary">GitHub
+            Profile</a>
         </div>
       </div>
     </section>
@@ -160,7 +166,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© Sagar Adhikari. Built with clean code.</p>
+      <p>© Sagar Adhikari. Built with precision.</p>
     </div>
   </footer>
 
