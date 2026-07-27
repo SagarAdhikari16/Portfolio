@@ -34,6 +34,14 @@
 
   function initSecurityObservers() {
     enforceNonEditable();
+
+    // Standard cross-browser image drag prevention
+    document.addEventListener("dragstart", e => {
+      if (e.target && e.target.tagName === "IMG") {
+        e.preventDefault();
+      }
+    });
+
     const observer = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
         if (mutation.type === "attributes" && mutation.attributeName === "contenteditable") {
