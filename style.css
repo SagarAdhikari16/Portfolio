@@ -31,13 +31,12 @@
 [contenteditable="false"],
 [contenteditable] {
   -webkit-user-modify: read-only !important;
-  user-modify: read-only !important;
+  user-select: none;
 }
 
 img,
 .hero-frame img {
   -webkit-user-drag: none;
-  user-drag: none;
   -webkit-user-select: none;
   user-select: none;
 }
