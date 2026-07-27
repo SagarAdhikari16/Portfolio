@@ -939,3 +939,18 @@ body {
     animation: none;
   }
 }
+
+.cert-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.cert-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
