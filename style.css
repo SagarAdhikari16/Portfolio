@@ -3,19 +3,19 @@
   --bg-subtle: #12161f;
   --border: #222938;
   --border-hover: #3b465e;
-
+  
   --text-main: #e2e8f0;
   --text-muted: #94a3b8;
   --text-dim: #64748b;
   --heading: #f8fafc;
-
+  
   --accent: #38bdf8;
   --accent-glow: rgba(56, 189, 248, 0.15);
   --green: #4ade80;
-
+  
   --mono: 'JetBrains Mono', monospace;
   --sans: 'Inter', -apple-system, sans-serif;
-
+  
   --radius-sm: 6px;
   --radius: 12px;
   --radius-lg: 16px;
@@ -47,7 +47,7 @@ html {
   position: fixed;
   inset: 0;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 40px 40px;
   pointer-events: none;
   z-index: -1;
@@ -108,6 +108,13 @@ html {
 /* Hero Section */
 .hero {
   padding: 160px 0 100px;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
 }
 
 .hero-label {
@@ -203,6 +210,29 @@ html {
   color: var(--heading);
 }
 
+/* Hero Profile Photo Frame */
+.hero-image-box {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-frame {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Section Common */
 .section {
   padding: 90px 0;
@@ -230,14 +260,12 @@ html {
 }
 
 /* Projects & Cards */
-.projects-grid,
-.skills-grid {
+.projects-grid, .skills-grid {
   display: grid;
   gap: 24px;
 }
 
-.project-card,
-.skill-category {
+.project-card, .skill-category {
   background: var(--bg-subtle);
   border: 1px solid var(--border);
   padding: 28px;
@@ -275,7 +303,7 @@ html {
 
 .award-item {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 80px 1fr;
   gap: 24px;
   align-items: center;
   padding: 24px;
@@ -290,18 +318,16 @@ html {
   transform: translateY(-2px);
 }
 
-.award-img-box {
-  width: 100%;
-  aspect-ratio: 4/3;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.award-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.award-badge-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
 }
 
 .award-badge {
@@ -344,6 +370,19 @@ html {
   text-decoration: underline;
 }
 
+/* Contact Box */
+.contact-box {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.contact-actions {
+  margin-top: 20px;
+}
+
 /* Terminal Widget */
 .terminal {
   position: fixed;
@@ -356,7 +395,7 @@ html {
   font-family: var(--mono);
   font-size: 0.8rem;
   z-index: 90;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
 }
 
 .terminal-header {
@@ -422,7 +461,20 @@ html {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-image-box {
+    order: -1;
+    margin-bottom: 20px;
+  }
+
+  .hero-image-frame {
+    max-width: 220px;
+  }
+
   .award-item {
     grid-template-columns: 1fr;
     gap: 16px;
