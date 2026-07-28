@@ -54,14 +54,13 @@ function initTerminal() {
 /* ── Copy email ── */
 function initCopyEmail() {
   const btn = document.getElementById("copy-email");
-  const label = document.getElementById("copy-label");
-  const toast = document.getElementById("toast");
-  if (!btn || !label) return;
+  if (!btn) return;
 
   btn.addEventListener("click", async () => {
     const email = btn.dataset.email;
     try {
       await navigator.clipboard.writeText(email);
+      showToast("Email copied to clipboard!");
     } catch {
       const ta = document.createElement("textarea");
       ta.value = email;
@@ -69,109 +68,53 @@ function initCopyEmail() {
       ta.select();
       document.execCommand("copy");
       document.body.removeChild(ta);
-    }
-
-    label.textContent = "Copied!";
-    btn.classList.add("copied");
-    if (toast) {
-      toast.textContent = "Email copied to clipboard";
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2500);
-    }
-
-    setTimeout(() => {
-      label.textContent = email;
-      btn.classList.remove("copied");
-    }, 2000);
-  });
-}
-
-/* ── Scroll reveal ── */
-function revealElements() {
-  document.querySelectorAll(".reveal").forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 48) {
-      el.classList.add("active");
+      showToast("Email copied to clipboard!");
     }
   });
 }
 
-/* ── Active nav ── */
-function updateActiveNav() {
-  const sections = document.querySelectorAll("section[id]");
-  const links = document.querySelectorAll(".nav a");
-  let current = "";
-
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 120) {
-      current = section.id;
-    }
-  });
-
-  links.forEach(link => {
-    link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
-  });
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 3000);
 }
 
-/* ── Header scroll state ── */
-function initHeader() {
-  const header = document.getElementById("header");
-  if (!header) return;
+/* ── Scroll Reveal Observer ── */
+function initReveal() {
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
-  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 10);
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  reveals.forEach((el) => observer.observe(el));
 }
 
-/* ── Mobile nav ── */
-function initMobileNav() {
+/* ── Navigation Toggle ── */
+function initNav() {
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".nav");
   if (!toggle || !nav) return;
 
   toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    toggle.classList.toggle("open", open);
-    toggle.setAttribute("aria-expanded", open);
-    document.body.style.overflow = open ? "hidden" : "";
-  });
-
-  nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      toggle.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-    });
+    toggle.classList.toggle("open");
+    nav.classList.toggle("open");
   });
 }
 
-/* ── Live clock in hero ── */
-function updateClock() {
-  const clockEl = document.querySelector(".hero-meta span:last-child");
-  if (!clockEl) return;
-
-  const now = new Date();
-  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-  const npTime = new Date(utc + 5.75 * 3600000);
-  const h = String(npTime.getHours()).padStart(2, "0");
-  const m = String(npTime.getMinutes()).padStart(2, "0");
-  clockEl.textContent = `${h}:${m} NPT`;
-}
-
-function onScroll() {
-  revealElements();
-  updateActiveNav();
-}
-
+/* ── Initialize All ── */
 document.addEventListener("DOMContentLoaded", () => {
-  initHeader();
-  initMobileNav();
+  setInterval(rotateTagline, 3500);
   initTerminal();
   initCopyEmail();
-  revealElements();
-  updateClock();
-  setInterval(updateClock, 30000);
-  setInterval(rotateTagline, 3500);
+  initReveal();
+  initNav();
 });
-
-window.addEventListener("scroll", onScroll, { passive: true });
