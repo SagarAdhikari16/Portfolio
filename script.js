@@ -1,20 +1,20 @@
 const TAGLINES = [
-  "scalable digital products",
-  "intelligent user experiences",
-  "AI-powered workflows",
-  "clean system architecture"
+  "building clean web interfaces",
+  "exploring PHP backends",
+  "leveraging AI tools",
+  "analyzing DBMS architectures"
 ];
 
-const STATUS_LINES = [
-  "Building Snap Study platform node...",
-  "Learning UI/UX design frameworks",
-  "Exploring AI-assisted development",
-  "Open to new project collaborations",
-  "Crafting responsive web layouts"
-];
+const SECTION_LOGS = {
+  hero: "location: #hero — Viewing Sagar Adhikari Overview",
+  about: "location: #about — Reading background & BIM context",
+  projects: "location: #projects — Inspecting active builds & Snap Study",
+  skills: "location: #skills — Analyzing technical stack (PHP, C, Java)",
+  awards: "location: #awards — Reviewing academic credentials",
+  contact: "location: #contact — Ready to collaborate"
+};
 
 let taglineIndex = 0;
-let statusIndex = 0;
 
 /* ── Rotating hero tagline ── */
 function rotateTagline() {
@@ -29,17 +29,27 @@ function rotateTagline() {
   }, 300);
 }
 
-/* ── Terminal status widget ── */
-function updateTerminal() {
+/* ── Dynamic Section Monitor (activity.log) ── */
+function initSectionMonitor() {
   const output = document.getElementById("terminal-output");
   if (!output) return;
-  output.textContent = STATUS_LINES[statusIndex];
-  statusIndex = (statusIndex + 1) % STATUS_LINES.length;
-}
 
-function initTerminal() {
-  updateTerminal();
-  setInterval(updateTerminal, 5000);
+  const sections = document.querySelectorAll("section[id]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          if (SECTION_LOGS[id]) {
+            output.textContent = SECTION_LOGS[id];
+          }
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  sections.forEach((sec) => observer.observe(sec));
 
   const toggle = document.getElementById("terminal-toggle");
   const widget = document.getElementById("terminal");
@@ -113,7 +123,7 @@ function initNav() {
 /* ── Initialize All ── */
 document.addEventListener("DOMContentLoaded", () => {
   setInterval(rotateTagline, 3500);
-  initTerminal();
+  initSectionMonitor();
   initCopyEmail();
   initReveal();
   initNav();
